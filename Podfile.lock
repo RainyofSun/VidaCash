@@ -1,0 +1,169 @@
+PODS:
+  - Alamofire (5.10.1)
+  - BRPickerView/Core (2.9.1)
+  - BRPickerView/DatePicker (2.9.1):
+    - BRPickerView/Core
+  - BRPickerView/Default (2.9.1):
+    - BRPickerView/DatePicker
+    - BRPickerView/TextPicker
+  - BRPickerView/TextPicker (2.9.1):
+    - BRPickerView/Core
+  - CocoaLumberjack/Core (3.8.5)
+  - CocoaLumberjack/Swift (3.8.5):
+    - CocoaLumberjack/Core
+  - EmptyDataSet-Swift (5.0.0)
+  - FBAEMKit (17.4.0):
+    - FBSDKCoreKit_Basics (= 17.4.0)
+  - FBSDKCoreKit (17.4.0):
+    - FBAEMKit (= 17.4.0)
+    - FBSDKCoreKit_Basics (= 17.4.0)
+  - FBSDKCoreKit_Basics (17.4.0)
+  - FDFullscreenPopGesture (1.1)
+  - GSCaptchaButton (1.0.1)
+  - HandyJSON (5.0.2)
+  - IQKeyboardCore (1.0.5)
+  - IQKeyboardManagerSwift (8.0.0):
+    - IQKeyboardManagerSwift/Appearance (= 8.0.0)
+    - IQKeyboardManagerSwift/Core (= 8.0.0)
+    - IQKeyboardManagerSwift/IQKeyboardReturnManager (= 8.0.0)
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager (= 8.0.0)
+    - IQKeyboardManagerSwift/IQTextView (= 8.0.0)
+    - IQKeyboardManagerSwift/Resign (= 8.0.0)
+  - IQKeyboardManagerSwift/Appearance (8.0.0):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardManagerSwift/Core (8.0.0):
+    - IQKeyboardNotification
+    - IQTextInputViewNotification
+  - IQKeyboardManagerSwift/IQKeyboardReturnManager (8.0.0):
+    - IQKeyboardReturnManager
+  - IQKeyboardManagerSwift/IQKeyboardToolbarManager (8.0.0):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardToolbarManager
+  - IQKeyboardManagerSwift/IQTextView (8.0.0):
+    - IQTextView
+  - IQKeyboardManagerSwift/Resign (8.0.0):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardNotification (1.0.3)
+  - IQKeyboardReturnManager (1.0.4):
+    - IQKeyboardCore (= 1.0.5)
+  - IQKeyboardToolbar (1.1.1):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Core (= 1.1.1)
+  - IQKeyboardToolbar/Core (1.1.1):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Placeholderable
+  - IQKeyboardToolbar/Placeholderable (1.1.1):
+    - IQKeyboardCore
+  - IQKeyboardToolbarManager (1.1.1):
+    - IQKeyboardToolbar
+    - IQTextInputViewNotification
+  - IQTextInputViewNotification (1.0.8):
+    - IQKeyboardCore
+  - IQTextView (1.0.5):
+    - IQKeyboardToolbar/Placeholderable
+  - Kingfisher (7.9.1)
+  - LJContactManager (1.0.7)
+  - Mach-Swift (1.1.1)
+  - MJRefresh (3.7.5)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Reachability (3.2)
+  - SAMKeychain (1.5.3)
+  - SnapKit (5.6.0)
+  - SwiftyJSON (4.3.0)
+  - Toast-Swift (5.0.1)
+  - TZImagePickerController (3.8.8):
+    - TZImagePickerController/Basic (= 3.8.8)
+    - TZImagePickerController/Location (= 3.8.8)
+  - TZImagePickerController/Basic (3.8.8)
+  - TZImagePickerController/Location (3.8.8)
+
+DEPENDENCIES:
+  - BRPickerView/Default (= 2.9.1)
+  - CocoaLumberjack/Swift
+  - EmptyDataSet-Swift (= 5.0.0)
+  - FBSDKCoreKit (= 17.4.0)
+  - FDFullscreenPopGesture (= 1.1)
+  - GSCaptchaButton
+  - HandyJSON (= 5.0.2)
+  - IQKeyboardManagerSwift (= 8.0.0)
+  - Kingfisher (= 7.9.1)
+  - LJContactManager (= 1.0.7)
+  - Mach-Swift (= 1.1.1)
+  - MJRefresh (= 3.7.5)
+  - Moya (= 15.0.0)
+  - Reachability (= 3.2)
+  - SAMKeychain (= 1.5.3)
+  - SnapKit (= 5.6.0)
+  - SwiftyJSON (= 4.3.0)
+  - Toast-Swift (= 5.0.1)
+  - TZImagePickerController (= 3.8.8)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - BRPickerView
+    - CocoaLumberjack
+    - EmptyDataSet-Swift
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FDFullscreenPopGesture
+    - GSCaptchaButton
+    - HandyJSON
+    - IQKeyboardCore
+    - IQKeyboardManagerSwift
+    - IQKeyboardNotification
+    - IQKeyboardReturnManager
+    - IQKeyboardToolbar
+    - IQKeyboardToolbarManager
+    - IQTextInputViewNotification
+    - IQTextView
+    - Kingfisher
+    - LJContactManager
+    - Mach-Swift
+    - MJRefresh
+    - Moya
+    - Reachability
+    - SAMKeychain
+    - SnapKit
+    - SwiftyJSON
+    - Toast-Swift
+    - TZImagePickerController
+
+SPEC CHECKSUMS:
+  Alamofire: 840d2a1ad82355b536ec6ba5f97e5bfa54600ca3
+  BRPickerView: 6dd69ea2c48e0a0abf1d197a705050e13143ee63
+  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
+  FBAEMKit: 58cb5f302cdd715a56d4c1d0dfdd2e423ac1421a
+  FBSDKCoreKit: 94d7461d0cecf441b1ba7c41acfff41daa8ccd41
+  FBSDKCoreKit_Basics: 151b43db8b834d3f0e02f95d36a44ffd36265e45
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  GSCaptchaButton: 52fadc57ecc3fbea7cac6518b62be13b49c30d8f
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IQKeyboardCore: 28c8bf3bcd8ba5aa1570b318cbc4da94b861711e
+  IQKeyboardManagerSwift: 0c6fbbaa2e60739e48d7cf59f25661471a7a3a65
+  IQKeyboardNotification: d7382c4466c5a5adef92c7452ebf861b36050088
+  IQKeyboardReturnManager: 972be48528ce9e7508ab3ab15ac7efac803f17f5
+  IQKeyboardToolbar: d4bdccfb78324aec2f3920659c77bb89acd33312
+  IQKeyboardToolbarManager: 462d8597c59e73c34c3e7c4b18923f0c49b90e00
+  IQTextInputViewNotification: f5e954d8881fd9808b744e49e024cc0d4bcfe572
+  IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
+  Kingfisher: 1d14e9f59cbe19389f591c929000332bf70efd32
+  LJContactManager: cebd9b2287b4aaa29b97789e7026e7c883426cbb
+  Mach-Swift: c715eae0a603b713b4d1d056b6bec7eae68c16a3
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TZImagePickerController: d084a7b97c82d387e7669dd86dc9a9057500aacf
+
+PODFILE CHECKSUM: 3e268a337f53d7bbfdedee8418d1841b90ebbe77
+
+COCOAPODS: 1.16.2
