@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  VidaCash
+
+  Created by Yu Chen  on 2025/1/31.
+  
+*/
+
+// MARK: Guide
+"guide_try_title" = "Try Again";
+"guide_title1" = "Convenient and quick";
+"guide_content1" = "Borrow money on your mobile phone at any time, no need to go to the bank to wait";
+"guide_title2" = "No hidden fees";
+"guide_content2" = "Ensure that users have a clear understanding of the cost of the loan";
+"guide_title3" = "High limit";
+"guide_content3" = "The maximum loan amount can reach \n";
+"guide_content4" = "29,000";
+"guide_next" = "Next";
+
+// MARK: Login
+"login_timer_code_title" = "Get code";
+"login_pop_tip" = "Ultra-low interest rate";
+"login_pop_title" = "Login";
+"login_pop_phone_placeholder" = "Enter a phone number";
+"login_pop_code_placeholder" = "Verification code";
+"login_pop_voice_code" = "Voice verification";
+"login_pop_protocol1" = "I have read and agree ";
+"login_pop_protocol2" = "Privacy Agreemeni";
+"login_pop_agree_protocol" = "Please confirm whether you agree to agreement";
+"login_pop_toast1" = "Please enter your phone number";
+"login_pop_toast2" = "Please enter the verification code";
+
+// MARK: Home
+"home_big_card_step" = "Complete in 2 steps";
+"home_big_card_tip1" = "It's easier than you think";
+"home_big_card_tip2" = "Application quota";
+"home_big_card_tip3" = "Fill in information";
+"home_big_card_tip4" = "Loan success";
+"home_big_card_tip5" = "Obtain a loan";
+"home_big_card_tip6" = "Quick quiz";
+
+// MARK: Order
+"order_empty_title" = "There are currently noorders available";
+"order_nav_title" = "Order";
+"order_menu_apply" = "Apply";
+"order_menu_repayment" = "Repayment";
+"order_menu_finished" = "Finished";
+
+// MARK: Certification
+"certification_uncomplete" = "Unauthenticated";
+"certification_complete" = "Certified";
+"certification_prtocol" = "I have read and agree ";
+"certification_agree_cancel_protocol" = "Please confirm whether you agree to loan agreement";
+"certification_card_pop_title" = "Confirm information";
+"certification_card_pop_time" = "Please select a time";
+"certification_card_pop_choise" = "Please select";
+"certification_card_pop_city" = "Please select an address";
+"certification_card_pop_city_btn" = "Select";
+"certification_card_pop_place" = "Please Enter";
+"certification_card_pop_name" = "Full Name";
+"certification_card_pop_id" = "ID No.";
+"certification_card_pop_birthday" = "Birthday";
+"certification_card_pop_tip" = "*Check the identity information andmake sure it is correct, oncesubmitted it cannot be changed!";
+"certification_card_pop_confirm" = "Confirm";
+
+// Mine
+"mine_nav_title" = "Me";
+"mine_setting_title" = "Setting";
+"mine_setting_version" = "Version\n";
+"mine_setting_cancel" = "Account\n cancellation";
+"mine_setting_logout" = "Logout";
+"mine_setting_pop_tip1" = "The account cannot be restoredafter cancellation. To ensure thesecurity of your account pleaseconfirm that the services relatedto the account have been properly handled beforeapplication and pay attention tothe following provisions:\n";
+"mine_setting_pop_tip2" = "All borrowings have been completed";
+"mine_setting_pop_tip3" = "I have read and agreed to the above";
+"mine_setting_pop_title" = "Account cancellation";
+"mine_setting_pop_title1" = "Payment tips";
+"cancel_agree_cancel_protocol" = "Please confirm whether you agree to cancel the agreement";
+"mine_setting_logout_tip" = "Are you sure you want to quit?";
+"mine_setting_logout_title" = "Exit";
+
+// MARK: Alert
+"alert_sheet_photo" = "Photo Album";
+"alert_sheet_camera" = "Camera";
+"alert_sheet_cancel" = "Cancel";
+"alert_sheet_ok" = "OK";
+"alert_id_certification" = "Please upload a photo of your ID first";
+"alert_addressbook" = "The APP applies to access the contact list. Easily upload contact information to simplify steps and accelerate the loan application.";
+"alert_location" = "The current application collects your location information, uses it for loan risk assessment, and recommends personalized products to you. You can open Settings-Privacy System and set it to off at any time.";
+"alert_camera" = "Authorize camera access to easily take ID card photos and have a convenient operation process.";
+"alert_album" = "Grant album permission to conveniently select and upload identity photos and accelerate the application process.";
+"alert_address" = "Please verify your address";
+
+// MARK: Refresh
+"refresh_pull_idle" = "Pull down to refresh";
+"refresh_pulling" = "Release to refresh";
+"refresh_refreshing" = "Loading...";
+"refresh_footer_idle" = "Tap or pull up to load more";
+"refresh_footer_refreshing" = "Loading...";
+"refresh_footer_nomoredata" = "No more data";

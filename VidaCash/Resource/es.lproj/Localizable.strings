@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  VidaCash
+
+  Created by Yu Chen  on 2025/1/31.
+  
+*/
+
+// MARK: Guide
+"guide_try_title" = "Intentar otra vez";
+"guide_title1" = "Conveniente y rápido";
+"guide_content1" = "Presta dinero en tu teléfono móvil en cualquier momento, no hace falta ir al banco a esperar.";
+"guide_title2" = "Sin cargos ocultos";
+"guide_content2" = "Asegurar que los usuarios tengan una comprensión clara del costo del préstamo.";
+"guide_title3" = "Límite alto";
+"guide_content3" = "El monto máximo del préstamo puede alcanzar \n";
+"guide_content4" = "29,000";
+"guide_next" = "Próximo";
+
+// MARK: Login
+"login_timer_code_title" = "Obtener codigo";
+"login_pop_tip" = "Tasa de interés ultra baja";
+"login_pop_title" = "Acceso";
+"login_pop_phone_placeholder" = "Número de teléfono móvil";
+"login_pop_code_placeholder" = "Código de verifcación";
+"login_pop_voice_code" = "Verificación de voz";
+"login_pop_protocol1" = "He leído y estoy de acuerdo\n";
+"login_pop_protocol2" = "Acuerdo de privacidad";
+"login_pop_agree_protocol" = "Por favor confirme si está de acuerdo con el acuerdo";
+"login_pop_toast1" = "Por favor introduzca su número de teléfono";
+"login_pop_toast2" = "Introduzca el código de verificación";
+
+// MARK: Home
+"home_big_card_step" = "Llevar a cabo en 2 pasos";
+"home_big_card_tip1" = "Es más fácil de lo que piensas.";
+"home_big_card_tip2" = "Cuota de la aplicación";
+"home_big_card_tip3" = "Complete la información";
+"home_big_card_tip4" = "Éxito en el préstamo ";
+"home_big_card_tip5" = "Obtener un préstamo";
+"home_big_card_tip6" = "Examen rápido";
+
+// MARK: Order
+"order_empty_title" = "Actualmente no hay ordenes disponibles";
+"order_nav_title" = "Orden";
+"order_menu_apply" = "En proceso";
+"order_menu_repayment" = "Préstamos";
+"order_menu_finished" = "Pagados";
+
+// MARK: Certification
+"certification_uncomplete" = "No autenticado";
+"certification_complete" = " Certificado";
+"certification_prtocol" = "He leído y estoy de acuerdo ";
+"certification_agree_cancel_protocol" = "Por favor confirme si está de acuerdo con el contrato de préstamo";
+"certification_card_pop_title" = "Confirmar información";
+"certification_card_pop_time" = "Seleccione una hora";
+"certification_card_pop_choise" = "Por favor seleccione";
+"certification_card_pop_city" = "Por favor seleccione\nuna dirección";
+"certification_card_pop_city_btn" = "Seleccionar";
+"certification_card_pop_place" = "Por favor introduzca";
+"certification_card_pop_name" = "Nombre completo";
+"certification_card_pop_id" = "Número de identificación";
+"certification_card_pop_birthday" = "Cumpleaños";
+"certification_card_pop_tip" = "*Verifique la información de identidad y asegúrese de que sea correcta, una vez enviado, no podrá cambiarla.";
+"certification_card_pop_confirm" = "Confirmar";
+
+// Mine
+"mine_nav_title" = "Mí";
+"mine_setting_title" = "Configuración";
+"mine_setting_version" = "Versión\n";
+"mine_setting_cancel" = "Cancelación de\n cuenta";
+"mine_setting_logout" = "Salir";
+"mine_setting_pop_tip1" = "La cuenta no puede ser restoredafter cancelación. Para garantizar la seguridad de su cuenta, asegúrese de que los servicios relacionados con la cuenta se han gestionado correctamente antes de su solicitud y preste atención a las siguientes disposiciones:\n";
+"mine_setting_pop_tip2" = "Todos los empréstitos han sido completados";
+"mine_setting_pop_tip3" = "He leído y acepto lo anterior.";
+"mine_setting_pop_title" = "Cancelación de cuenta";
+"mine_setting_pop_title1" = "Cancelación de cuenta";
+"cancel_agree_cancel_protocol" = "Por favor confirme si está de acuerdo con cancelar el acuerdo";
+"mine_setting_logout_tip" = "¿Estás seguro de que quieres salir?";
+"mine_setting_logout_title" = "Salir";
+
+// MARK: Alert
+"alert_sheet_photo" = "Álbum de fotos";
+"alert_sheet_camera" = "Cámara de fotos";
+"alert_sheet_cancel" = "Cancelar";
+"alert_sheet_ok" = "OK";
+"alert_id_certification" = "Por favor, primero cargue una foto de su identificación";
+"alert_addressbook" = "La aplicación se aplica para acceder a la lista de contactos. Cargar fácilmente la información de contacto para simplificar los pasos y acelerar la solicitud de préstamo.";
+"alert_location" = "La aplicación actual recopila su información de ubicación, la utiliza para la evaluación de riesgos de préstamos y le recomienda productos personalizados. Puede abrir Settings-Privacy System y desactivarlo en cualquier momento.";
+"alert_camera" = "Autorizar el acceso a la cámara para tomar fácilmente las fotos de la tarjeta de identificación y tener un proceso de operación conveniente.";
+"alert_album" = "Conceder permiso al álbum para seleccionar y subir cómodamente fotos de identidad y acelerar el proceso de solicitud.";
+"alert_address" = "Por favor verifique su dirección";
+
+// MARK: Refresh
+"refresh_pull_idle" = "Tire hacia abajo para refres.";
+"refresh_pulling" = "Liberación para actualizar";
+"refresh_refreshing" = "Carga...";
+"refresh_footer_idle" = "Toque o tire hacia arriba para cargar más";
+"refresh_footer_refreshing" = "Carga...";
+"refresh_footer_nomoredata" = "No más datos";

@@ -6,22 +6,24 @@ use_frameworks!
 
 # 定义公共库
 def CommonPods
-  pod 'HandyJSON', '5.0.2'
-  pod 'Moya', '15.0.0'
-  pod 'SwiftyJSON', '4.3.0'
   pod 'CocoaLumberjack/Swift'
-  pod 'Toast-Swift', '5.0.1'
+  pod 'Toast', '4.1.1'
   pod 'Kingfisher', '7.9.1'
   pod 'MJRefresh', '3.7.5'
   pod 'EmptyDataSet-Swift', '5.0.0'
   pod 'FDFullscreenPopGesture', '1.1'
   pod 'Reachability', '3.2'
   pod 'SnapKit', '5.6.0'
-  pod 'SAMKeychain', '1.5.3'
   pod 'EmptyDataSet-Swift', '5.0.0'
   pod 'TZImagePickerController', '3.8.8'
   pod 'IQKeyboardManagerSwift', '8.0.0'
   pod 'Mach-Swift', '1.1.1'
+  pod 'JXBanner', '0.3.6'
+end
+
+def OCFrameworks
+  pod 'AFNetworking', '4.0.1'
+  pod 'YYKit', '1.0.9'
 end
 
 def HostPods
@@ -33,6 +35,7 @@ end
 
 target 'VidaCash' do
   CommonPods()
+  OCFrameworks()
   HostPods()
 end
 
