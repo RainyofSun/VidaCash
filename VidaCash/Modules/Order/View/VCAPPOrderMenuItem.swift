@@ -100,4 +100,10 @@ class VCAPPOrderMenuItem: UIControl {
     public func reloadTitle(_ title: String?) {
         self.titleLab.text = title
     }
+    
+    public func setMenuItemImage(_ image: String) {
+        self.imgView.image = UIImage(named: image)
+        self.backgroundColor = UIColor.init(red: 93/255.0, green: 203/255.0, blue: 61/255.0, alpha: 1)
+        self.titleLab.textColor = .white
+    }
 }

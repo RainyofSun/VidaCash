@@ -78,12 +78,12 @@ class VCAPPLoanIDCardViewController: VCAPPLoanCertificationViewController {
         self.cardItem.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(PADDING_UNIT * 4)
             make.top.equalTo(self.topTipImgView.snp.bottom).offset(PADDING_UNIT * 3)
+            make.size.equalTo(CGSize(width: (ScreenWidth - PADDING_UNIT * 10) * 0.5, height: (ScreenWidth - PADDING_UNIT * 10) * 0.5 * 0.54))
         }
         
         self.faceItem.snp.makeConstraints { make in
             make.left.equalTo(self.cardItem.snp.right).offset(PADDING_UNIT * 2)
-            make.right.equalToSuperview().offset(-PADDING_UNIT * 4)
-            make.top.width.equalTo(self.cardItem)
+            make.top.size.equalTo(self.cardItem)
         }
         
         self.hScrollView.snp.makeConstraints { make in
@@ -136,6 +136,14 @@ class VCAPPLoanIDCardViewController: VCAPPLoanCertificationViewController {
             
             if let _img_url = _card_model.opera?.stating, let _url = URL(string: _img_url) {
                 self?.faceBtn.setBackgroundImageWith(_url, for: UIControl.State.normal, options: .progressiveBlur)
+            }
+            
+            if let _complete = _card_model.scale?.brokeback, _complete {
+                self?.cardItem.setMenuItemImage("certification_card_complete")
+            }
+            
+            if let _complete = _card_model.opera?.brokeback, _complete {
+                self?.faceItem.setMenuItemImage("certification_card_complete")
             }
             
             self?._is_face = _card_model.scale?.brokeback ?? false
@@ -233,6 +241,7 @@ private extension VCAPPLoanIDCardViewController {
                 
                 if let _img_url = _infoModel.stating, let _url = URL(string: _img_url) {
                     _self.cardBtn.setBackgroundImageWith(_url, for: UIControl.State.normal, options: .progressiveBlur)
+                    _self.cardItem.setMenuItemImage("certification_card_complete")
                 }
             }
         } failure: { [weak self] _, _ in
@@ -254,23 +263,35 @@ extension VCAPPLoanIDCardViewController: UIImagePickerControllerDelegate, UINavi
 
 @objc private extension VCAPPLoanIDCardViewController {
     func clickCardItem(sender: VCAPPOrderMenuItem) {
-        if sender.isSelected {
-            return
+        
+        if let _complete = self._card_certification_model?.scale?.brokeback, _complete {
+            sender.setMenuItemImage("certification_card_complete")
+        } else {
+            sender.isSelected = true
         }
         
-        sender.isSelected = true
-        self.faceItem.isSelected = !sender.isSelected
+        if let _complete = self._card_certification_model?.opera?.brokeback, _complete {
+            self.faceItem.setMenuItemImage("certification_card_complete")
+        } else {
+            self.faceItem.isSelected = !sender.isSelected
+        }
         
         self.hScrollView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     func clickFaceItem(sender: VCAPPOrderMenuItem) {
-        if sender.isSelected {
-            return
+        
+        if let _complete = self._card_certification_model?.opera?.brokeback, _complete {
+            sender.setMenuItemImage("certification_card_complete")
+        } else {
+            sender.isSelected = true
         }
         
-        sender.isSelected = true
-        self.cardItem.isSelected = !sender.isSelected
+        if let _complete = self._card_certification_model?.scale?.brokeback, _complete {
+            self.cardItem.setMenuItemImage("certification_card_complete")
+        } else {
+            self.cardItem.isSelected = !sender.isSelected
+        }
         
         self.hScrollView.setContentOffset(CGPoint(x: ScreenWidth, y: .zero), animated: true)
     }

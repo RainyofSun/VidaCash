@@ -22,7 +22,7 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
         let pageControl = VCAPPGreenGuidePageControl(frame: CGRect(origin: CGPointZero, size: CGSize(width: ScreenWidth, height: 30)))
         pageControl.currentColor = BLUE_COLOR_2C65FE
         pageControl.otherColor = UIColor.init(red: 148/255.0, green: 170/255.0, blue: 249/255.0, alpha: 1)
-        pageControl.pointCornerRadius = 4
+        pageControl.pointCornerRadius = 3
         pageControl.currentPointSize = CGSize(width: 12, height: 6)
         pageControl.otherPointSize = CGSize(width: 6, height: 6)
         pageControl.pageAliment = .Center
@@ -69,7 +69,7 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
         self.pageControl.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: ScreenWidth, height: 30))
-            make.bottom.equalTo(self.tryButton.snp.top).offset(-PADDING_UNIT * 5)
+            make.bottom.equalTo(self.tryButton.snp.top)
         }
         
         self.guideScrollView.snp.makeConstraints { make in
