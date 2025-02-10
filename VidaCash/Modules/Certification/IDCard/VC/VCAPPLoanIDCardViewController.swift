@@ -228,6 +228,7 @@ private extension VCAPPLoanIDCardViewController {
                             // 埋点
                             VCAPPBuryReport.VCAPPRiskControlInfoReport(riskType: VCRiskControlBuryReportType.APP_TakingCardPhoto, beginTime: _self.buryReportBeginTime, endTime: Date().timeStamp)
                             _self._card_certification_model?.scale?.brokeback = true
+                            _self._is_face = true
                             popView.dismissPop()
                         } failure: { _, _ in
                             action.stopAnimation()
@@ -237,6 +238,7 @@ private extension VCAPPLoanIDCardViewController {
                     // 埋点
                     VCAPPBuryReport.VCAPPRiskControlInfoReport(riskType: VCRiskControlBuryReportType.APP_TakingCardPhoto, beginTime: _self.buryReportBeginTime, endTime: Date().timeStamp)
                     _self._card_certification_model?.scale?.brokeback = true
+                    _self._is_face = true
                 }
                 
                 if let _img_url = _infoModel.stating, let _url = URL(string: _img_url) {

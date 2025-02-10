@@ -46,6 +46,8 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
         self.view.addSubview(self.tryButton)
         self.view.addSubview(self.pageControl)
         
+        self.guideScrollView.isHidden = !VCAPPDiskCache.readAPPInstallRecord()
+        self.pageControl.isHidden = self.guideScrollView.isHidden
 #if DEBUG
         self.pageRequest()
 #else
@@ -92,7 +94,6 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
             guard let _dict = response.jsonDict, let resModel: VCAPPGreenGuideModel = VCAPPGreenGuideModel.model(with: _dict) else {
                 return
             }
-            self?.tryButton.isHidden = false
             VCAPPCommonInfo.shared.isAppInitializationSuccess = true
             VCAPPCommonInfo.shared.privacyURL = resModel.wartime
             VCAPPCommonInfo.shared.countryCode = resModel.atrocities
@@ -106,15 +107,22 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
             }
 #if DEBUG
 #else
-            self?.initializationFaceBook(facebookModel: resModel.face)
-#endif
-            self?.guideScrollView.reloadGuideText()
-            UIView.animate(withDuration: 0.3) {
-                self?.guideScrollView.alpha = 1
-                self?.pageControl.isHidden = false
+            if let _face = resModel.face {
+                self?.initializationFaceBook(facebookModel: _face)
             }
-            
-            self?.tryButton.setTitle(VCAPPLanguageTool.localAPPLanguage("guide_next"), for: UIControl.State.normal)
+#endif
+            if VCAPPDiskCache.readAPPInstallRecord() {
+                self?.tryButton.isHidden = false
+                self?.guideScrollView.reloadGuideText()
+                UIView.animate(withDuration: 0.3) {
+                    self?.guideScrollView.alpha = 1
+                    self?.pageControl.isHidden = false
+                }
+                
+                self?.tryButton.setTitle(VCAPPLanguageTool.localAPPLanguage("guide_next"), for: UIControl.State.normal)
+            } else {
+                self?.guideDelegate?.guideDidDismiss()
+            }
         } failure: {[weak self] _, error in
             self?.tryButton.isHidden = false
             self?.switchAPPRequestDomain()

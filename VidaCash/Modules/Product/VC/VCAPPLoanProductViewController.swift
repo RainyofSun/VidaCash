@@ -35,6 +35,7 @@ class VCAPPLoanProductViewController: VCAPPBaseViewController {
         
         self.agreeBtn.isHidden = true
         self.protocolBtn.isHidden = true
+        self.agreeBtn.isSelected = true
         
         self.agreeBtn.addTarget(self, action: #selector(clickAgreeBtn(sender: )), for: UIControl.Event.touchUpInside)
         self.protocolBtn.addTarget(self, action: #selector(clickProtocolButton(sender: )), for: UIControl.Event.touchUpInside)
@@ -68,7 +69,7 @@ class VCAPPLoanProductViewController: VCAPPBaseViewController {
         }
         
         self.certificationView.snp.makeConstraints { make in
-            make.top.equalTo(self.topView.snp.bottom).offset(-PADDING_UNIT * 65)
+            make.top.equalTo(self.topView.snp.top).offset(ScreenWidth * 0.862)
             make.horizontalEdges.equalTo(self.topView).inset(PADDING_UNIT * 4)
             make.bottom.equalToSuperview().offset(-PADDING_UNIT * 5)
         }

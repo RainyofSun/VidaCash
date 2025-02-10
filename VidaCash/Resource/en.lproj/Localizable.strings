@@ -25,7 +25,7 @@
 "login_pop_code_placeholder" = "Verification code";
 "login_pop_voice_code" = "Voice verification";
 "login_pop_protocol1" = "I have read and agree ";
-"login_pop_protocol2" = "Privacy Agreemeni";
+"login_pop_protocol2" = "Privacy Policy";
 "login_pop_agree_protocol" = "Please confirm whether you agree to agreement";
 "login_pop_toast1" = "Please enter your phone number";
 "login_pop_toast2" = "Please enter the verification code";
@@ -50,7 +50,7 @@
 "certification_uncomplete" = "Unauthenticated";
 "certification_complete" = "Certified";
 "certification_prtocol" = "I have read and agree ";
-"certification_agree_cancel_protocol" = "Please confirm whether you agree to loan agreement";
+"certification_agree_cancel_protocol" = "Please read and agree to the agreement";
 "certification_card_pop_title" = "Confirm information";
 "certification_card_pop_time" = "Please select a time";
 "certification_card_pop_choise" = "Please select";

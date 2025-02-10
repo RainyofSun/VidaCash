@@ -42,7 +42,8 @@ class VCAPPTabbarViewController: UITabBarController {
 // MARK: Private Methods
 private extension VCAPPTabbarViewController {
     func setupUI() {
-        
+        // 保存第一次安装
+        VCAPPDiskCache.saveAppInstallRecord()
         let tabbar: VCAPPCustomTabbar = VCAPPCustomTabbar(frame: CGRect(origin: CGPointZero, size: CGSize(width: ScreenWidth, height: UIDevice.xp_tabBarFullHeight())))
         self.setValue(tabbar, forKey: "tabBar")
         tabbar.setTabbarTitles(barItemImages: image_array, barItemSelectedImages: select_image_array)

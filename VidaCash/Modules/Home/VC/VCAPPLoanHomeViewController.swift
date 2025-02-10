@@ -96,7 +96,7 @@ private extension VCAPPLoanHomeViewController {
             self.contentView.addSubview(self.bigCardView)
             
             self.bigCardView.snp.makeConstraints { make in
-                make.top.equalTo(self.topView.snp.bottom).offset(-PADDING_UNIT * 65)
+                make.top.equalTo(self.topView.snp.top).offset(ScreenWidth * 0.862)
                 make.horizontalEdges.equalTo(self.topView)
                 make.bottom.equalToSuperview().offset(-PADDING_UNIT * 4)
             }
@@ -105,7 +105,7 @@ private extension VCAPPLoanHomeViewController {
             self.contentView.addSubview(self.smallCardView)
             
             self.smallCardView.snp.makeConstraints { make in
-                make.top.equalTo(self.topView.snp.bottom).offset(-PADDING_UNIT * 65)
+                make.top.equalTo(self.topView.snp.top).offset(ScreenWidth * 0.862)
                 make.horizontalEdges.equalTo(self.topView)
                 make.bottom.equalToSuperview().offset(-PADDING_UNIT * 4)
             }
@@ -129,7 +129,7 @@ extension VCAPPLoanHomeViewController: APPHomeSmallCardProtocol {
     }
     
     func didSelectedLoanProduct(_ model: VCAPPLoanProductModel, sender: VCAPPLoadingButton) {
-        guard let _product_id = model.defended else {
+        guard let _product_id = model.defended, sender.isEnabled else {
             return
         }
         

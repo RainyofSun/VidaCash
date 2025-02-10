@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VCAPPBuryModel: NSObject {
+class VCAPPBuryModel: VCAPPBaseResponseModel {
     /// 内存
     var video: VCAPPMemoryInfoModel?
     /// 电量
@@ -20,7 +20,7 @@ class VCAPPBuryModel: NSObject {
     var original: VCAPPWIFIModel?
 }
 
-class VCAPPMemoryInfoModel: NSObject {
+class VCAPPMemoryInfoModel: VCAPPBaseResponseModel {
     /// 可用存储大小
     var version: String?
     /// 总存储大小
@@ -31,14 +31,14 @@ class VCAPPMemoryInfoModel: NSObject {
     var blu: String?
 }
 
-class VCAPPBatteryElectricModel: NSObject {
+class VCAPPBatteryElectricModel: VCAPPBaseResponseModel {
     /// 剩余电量
     var dedicated: String?
     /// 是否在充电
     var disc: String?
 }
 
-class VCAPPSystemInfoModel: NSObject {
+class VCAPPSystemInfoModel: VCAPPBaseResponseModel {
     /// 系统版本
     var versions: String?
     /// 设备铭牌
@@ -47,7 +47,7 @@ class VCAPPSystemInfoModel: NSObject {
     var widescreen: String?
 }
 
-class VCAPPTimeAndCellularModel: NSObject {
+class VCAPPTimeAndCellularModel: VCAPPBaseResponseModel {
     /// 时区ID
     var debuted: String?
     /// 运营商
@@ -62,11 +62,11 @@ class VCAPPTimeAndCellularModel: NSObject {
     var china: String?
 }
 
-class VCAPPWIFIModel: NSObject {
+class VCAPPWIFIModel: VCAPPBaseResponseModel {
     var conducted: VCAPPWIFIInfoModel?
 }
 
-class VCAPPWIFIInfoModel: NSObject {
+class VCAPPWIFIInfoModel: VCAPPBaseResponseModel {
     /// SSID
     var chronicles: String?
     var itzhak: String?

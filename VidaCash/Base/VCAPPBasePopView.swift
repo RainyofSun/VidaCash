@@ -10,6 +10,7 @@ import UIKit
 class VCAPPBasePopView: UIView {
 
     open var popDidmissClosure:((VCAPPBasePopView) -> Void)?
+    open var clickCloseClosure: ((VCAPPBasePopView) -> Void)?
     
     private lazy var topImgView: UIImageView = UIImageView(image: UIImage(named: "pop_top_image"))
     private(set) lazy var popTitleLab: UILabel = UILabel.buildNormalLabel(font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium), labelColor: .white)
@@ -113,6 +114,10 @@ class VCAPPBasePopView: UIView {
 
 @objc private extension VCAPPBasePopView {
     func clickCloseButton(sender: UIButton) {
-        self.dismissPop(false)
+        if self.clickCloseClosure != nil {
+            self.clickCloseClosure?(self)
+        } else {
+            self.dismissPop(false)
+        }
     }
 }

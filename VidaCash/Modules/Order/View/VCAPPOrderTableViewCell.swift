@@ -132,6 +132,8 @@ class VCAPPOrderTableViewCell: UITableViewCell {
 
 private extension VCAPPOrderTableViewCell {
     func buildLoanInfoItem(models: [VCAPPCommonModel]) {
+        self.subContentView.removeAllSubviews()
+        
         var _temp_item: VCAPPOrderLoanInfoItem?
         
         models.enumerated().forEach { (idx: Int, model: VCAPPCommonModel) in
@@ -142,21 +144,20 @@ private extension VCAPPOrderTableViewCell {
             if let _temp = _temp_item {
                 if idx == models.count - 1 {
                     view.snp.makeConstraints { make in
-                        make.left.equalTo(_temp.snp.right)
-                        make.top.width.equalTo(_temp)
-                        make.right.equalToSuperview().offset(-PADDING_UNIT * 2)
+                        make.left.equalTo(_temp)
+                        make.top.equalTo(_temp.snp.bottom).offset(PADDING_UNIT)
+                        make.bottom.equalToSuperview().offset(-PADDING_UNIT * 2)
                     }
                 } else {
                     view.snp.makeConstraints { make in
-                        make.left.equalTo(_temp.snp.right)
-                        make.top.width.equalTo(_temp)
+                        make.left.equalTo(_temp)
+                        make.top.equalTo(_temp.snp.bottom).offset(PADDING_UNIT)
                     }
                 }
             } else {
                 view.snp.makeConstraints { make in
-                    make.left.equalToSuperview().offset(PADDING_UNIT * 2)
-                    make.top.equalToSuperview().offset(PADDING_UNIT)
-                    make.bottom.equalToSuperview().offset(-PADDING_UNIT * 4)
+                    make.left.equalToSuperview().offset(PADDING_UNIT)
+                    make.top.equalToSuperview().offset(PADDING_UNIT * 2)
                 }
             }
             

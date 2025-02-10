@@ -15,7 +15,11 @@ class VCAPPLoanLoginViewController: VCAPPBaseViewController, HideNavigationBarPr
         self.view.backgroundColor = .clear
         self.view.addSubview(self.popView)
         self.reloadLocation()
-        self.popView.popDidmissClosure = { [weak self] _ in
+        self.popView.clickCloseClosure = { [weak self] (popView: VCAPPBasePopView) in
+            guard let _p_view = popView as? VCAPPLoginPopView else {
+                return
+            }
+            _p_view.dismissPop(false)
             self?.popView.stopSMSCodeTimer()
             self?.navigationController?.dismiss(animated: true)
         }

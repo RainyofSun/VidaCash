@@ -43,12 +43,13 @@ class VCAPPDiskCache: NSObject {
             return _value
         }
         
-#if DEBUG
-#else
+        return true
+    }
+    
+    // 保存是否首次按照
+    class func saveAppInstallRecord() {
         UserDefaults.standard.set(false, forKey: VC_APP_FIRST_INSTALLATION)
         UserDefaults.standard.synchronize()
-#endif
-        return true
     }
     
     // MARK: 今日是否已展示定位弹窗

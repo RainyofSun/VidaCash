@@ -17,15 +17,18 @@ class VCAPPOrderLoanInfoItem: UIView {
         self.addSubview(self.markLab)
         self.addSubview(self.valueLab)
         
-        self.valueLab.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(PADDING_UNIT)
-            make.bottom.equalToSuperview().offset(-PADDING_UNIT)
-        }
+        self.markLab.textAlignment = .left
+        self.valueLab.textAlignment = .left
         
         self.markLab.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(PADDING_UNIT)
-            make.bottom.equalTo(self.valueLab.snp.top).offset(-PADDING_UNIT)
-            make.top.equalToSuperview().offset(PADDING_UNIT * 2)
+            make.verticalEdges.equalToSuperview()
+            make.left.equalToSuperview().offset(PADDING_UNIT)
+            make.width.equalTo(ScreenWidth * 0.3)
+        }
+        
+        self.valueLab.snp.makeConstraints { make in
+            make.left.equalTo(self.markLab.snp.right).offset(PADDING_UNIT)
+            make.centerY.equalTo(self.markLab)
         }
     }
     

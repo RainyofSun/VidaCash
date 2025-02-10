@@ -105,7 +105,7 @@ class VCAPPLoginPopView: VCAPPBasePopView {
         
         self.protocolLab.snp.makeConstraints { make in
             make.top.equalTo(self.loginBtn.snp.bottom).offset(PADDING_UNIT * 5)
-            make.right.equalTo(self.loginBtn)
+            make.right.lessThanOrEqualTo(self.loginBtn)
             make.left.equalTo(self.agreeBtn.snp.right).offset(PADDING_UNIT * 2)
             make.bottom.equalToSuperview().offset(-PADDING_UNIT * 5)
         }
