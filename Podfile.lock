@@ -25,13 +25,16 @@ PODS:
   - CocoaLumberjack/Core (3.8.5)
   - CocoaLumberjack/Swift (3.8.5):
     - CocoaLumberjack/Core
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - EmptyDataSet-Swift (5.0.0)
-  - FBAEMKit (17.4.0):
-    - FBSDKCoreKit_Basics (= 17.4.0)
-  - FBSDKCoreKit (17.4.0):
-    - FBAEMKit (= 17.4.0)
-    - FBSDKCoreKit_Basics (= 17.4.0)
-  - FBSDKCoreKit_Basics (17.4.0)
+  - FBAEMKit (18.0.0):
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit (18.0.0):
+    - FBAEMKit (= 18.0.0)
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit_Basics (18.0.0)
   - FDFullscreenPopGesture (1.1)
   - GSCaptchaButton (1.0.1)
   - IQKeyboardCore (1.0.5)
@@ -67,13 +70,14 @@ PODS:
     - IQKeyboardToolbar/Placeholderable
   - IQKeyboardToolbar/Placeholderable (1.1.1):
     - IQKeyboardCore
-  - IQKeyboardToolbarManager (1.1.1):
+  - IQKeyboardToolbarManager (1.1.3):
     - IQKeyboardToolbar
     - IQTextInputViewNotification
   - IQTextInputViewNotification (1.0.8):
     - IQKeyboardCore
   - IQTextView (1.0.5):
     - IQKeyboardToolbar/Placeholderable
+  - JKSwiftExtension (2.7.1)
   - JXBanner (0.3.6):
     - JXBanner/Banner (= 0.3.6)
     - JXBanner/PageControl (= 0.3.6)
@@ -105,12 +109,12 @@ PODS:
     - JXPageControl/Common
   - JXPageControl/Transform (0.1.5):
     - JXPageControl/Common
-  - Kingfisher (7.9.1)
+  - Kingfisher (8.2.0)
   - LJContactManager (1.0.7)
   - Mach-Swift (1.1.1)
   - MJRefresh (3.7.5)
-  - Reachability (3.2)
-  - SnapKit (5.6.0)
+  - Reachability (3.7.6)
+  - SnapKit (5.7.1)
   - Toast (4.1.1)
   - TZImagePickerController (3.8.8):
     - TZImagePickerController/Basic (= 3.8.8)
@@ -122,30 +126,32 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - AFNetworking (= 4.0.1)
+  - AFNetworking (from `https://github.com/crasowas/AFNetworking.git`)
   - BRPickerView/Default (= 2.9.1)
   - CocoaLumberjack/Swift
+  - DGCharts (= 5.1.0)
   - EmptyDataSet-Swift (= 5.0.0)
-  - FBSDKCoreKit (= 17.4.0)
+  - FBSDKCoreKit (= 18.0.0)
   - FDFullscreenPopGesture (= 1.1)
   - GSCaptchaButton
   - IQKeyboardManagerSwift (= 8.0.0)
+  - JKSwiftExtension (= 2.7.1)
   - JXBanner (= 0.3.6)
-  - Kingfisher (= 7.9.1)
+  - Kingfisher (~> 8.2.0)
   - LJContactManager (= 1.0.7)
   - Mach-Swift (= 1.1.1)
   - MJRefresh (= 3.7.5)
-  - Reachability (= 3.2)
-  - SnapKit (= 5.6.0)
+  - Reachability (= 3.7.6)
+  - SnapKit (= 5.7.1)
   - Toast (= 4.1.1)
   - TZImagePickerController (= 3.8.8)
   - YYKit (= 1.0.9)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - AFNetworking
     - BRPickerView
     - CocoaLumberjack
+    - DGCharts
     - EmptyDataSet-Swift
     - FBAEMKit
     - FBSDKCoreKit
@@ -160,6 +166,7 @@ SPEC REPOS:
     - IQKeyboardToolbarManager
     - IQTextInputViewNotification
     - IQTextView
+    - JKSwiftExtension
     - JXBanner
     - JXPageControl
     - Kingfisher
@@ -172,14 +179,24 @@ SPEC REPOS:
     - TZImagePickerController
     - YYKit
 
+EXTERNAL SOURCES:
+  AFNetworking:
+    :git: https://github.com/crasowas/AFNetworking.git
+
+CHECKOUT OPTIONS:
+  AFNetworking:
+    :commit: cad86a0bd363f4c65086193addbb004d2c0a7718
+    :git: https://github.com/crasowas/AFNetworking.git
+
 SPEC CHECKSUMS:
-  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  AFNetworking: 1e49f114ce59e7156e35761e03e1087f386689e2
   BRPickerView: 6dd69ea2c48e0a0abf1d197a705050e13143ee63
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
-  FBAEMKit: 58cb5f302cdd715a56d4c1d0dfdd2e423ac1421a
-  FBSDKCoreKit: 94d7461d0cecf441b1ba7c41acfff41daa8ccd41
-  FBSDKCoreKit_Basics: 151b43db8b834d3f0e02f95d36a44ffd36265e45
+  FBAEMKit: e34530df538b8eb8aeb53c35867715ba6c63ef0c
+  FBSDKCoreKit: d3f479a69127acebb1c6aad91c1a33907bcf6c2f
+  FBSDKCoreKit_Basics: 017b6dc2a1862024815a8229e75661e627ac1e29
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   GSCaptchaButton: 52fadc57ecc3fbea7cac6518b62be13b49c30d8f
   IQKeyboardCore: 28c8bf3bcd8ba5aa1570b318cbc4da94b861711e
@@ -187,21 +204,22 @@ SPEC CHECKSUMS:
   IQKeyboardNotification: d7382c4466c5a5adef92c7452ebf861b36050088
   IQKeyboardReturnManager: 972be48528ce9e7508ab3ab15ac7efac803f17f5
   IQKeyboardToolbar: d4bdccfb78324aec2f3920659c77bb89acd33312
-  IQKeyboardToolbarManager: 462d8597c59e73c34c3e7c4b18923f0c49b90e00
+  IQKeyboardToolbarManager: 6c693c8478d6327a7ef2107528d29698b3514dbb
   IQTextInputViewNotification: f5e954d8881fd9808b744e49e024cc0d4bcfe572
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
+  JKSwiftExtension: 5b2150fe720d39bb3b1dea411b2cce92d68d4de0
   JXBanner: 348dbef856e786494cbf30fb45d6b84826f2d3c5
   JXPageControl: e9487b39e2e58fc17790833214f3b8e935bef98b
-  Kingfisher: 1d14e9f59cbe19389f591c929000332bf70efd32
+  Kingfisher: 323e5c4ec7983aaace12af655a7b51a7f88a599d
   LJContactManager: cebd9b2287b4aaa29b97789e7026e7c883426cbb
   Mach-Swift: c715eae0a603b713b4d1d056b6bec7eae68c16a3
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Reachability: fd0ecd23705e2599e4cceeb943222ae02296cbc6
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   TZImagePickerController: d084a7b97c82d387e7669dd86dc9a9057500aacf
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: f6e34d5fdccae03f26e225847a7ee44c966be0f9
+PODFILE CHECKSUM: 07258a66281415604d0bd8d05b69b13c96f898f8
 
 COCOAPODS: 1.16.2

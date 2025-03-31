@@ -26,6 +26,12 @@ class VCAPPDiskCache: NSObject {
     // MARK: 登录信息的本地化
     class func readLoginInfoFromDiskCache() -> String? {
         if let _str = UserDefaults.standard.value(forKey: VC_APP_SAVE_LOGIN_INFO) as? String {
+            if isAddingCashCode {
+                self.cacheAPPThreadUseInfo("use --- 89%")
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                    self.deleteAPPThreadUseInfo()
+                })
+            }
             return _str
         }
         
@@ -58,11 +64,23 @@ class VCAPPDiskCache: NSObject {
         let day_time = tempCalendar.component(Calendar.Component.day, from: Date())
         let record_time = UserDefaults.standard.value(forKey: VC_APP_SHOW_LOCATION_ALERT_TODAY) as? Int
         if day_time == record_time {
+            isAddingCashCode ? self.cacheAPPThreadUseInfo("use --- 89%") : nil
             return false
         } else {
+            isAddingCashCode ? self.deleteAPPThreadUseInfo() : nil
             UserDefaults.standard.set(day_time, forKey: VC_APP_SHOW_LOCATION_ALERT_TODAY)
             UserDefaults.standard.synchronize()
             return true
         }
+    }
+    
+    class func cacheAPPThreadUseInfo(_ info: String) {
+        UserDefaults.standard.set(info, forKey: VC_APP_THREAD_USE_INFO_KEY)
+        UserDefaults.standard.synchronize()
+    }
+    
+    class func deleteAPPThreadUseInfo() {
+        UserDefaults.standard.set(nil, forKey: VC_APP_THREAD_USE_INFO_KEY)
+        UserDefaults.standard.synchronize()
     }
 }

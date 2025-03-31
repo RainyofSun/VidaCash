@@ -177,6 +177,8 @@
             }else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyLTE"]){
 
                 netconnType = @"4G";
+            } else if ([currentStatus isEqualToString:@"CTRadioAccessTechnologyNR"] || [currentStatus isEqualToString:@"CTRadioAccessTechnologyNRNSA"]) {
+                netconnType = @"5G";
             }
         }
             break;
@@ -284,4 +286,17 @@
     long long availableMemorySize = ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
     return [NSString stringWithFormat:@"%lld", availableMemorySize];
 }
+
+- (BOOL)getProxyStatus:(NSString *)url {
+    NSDictionary *proxySettings = (__bridge NSDictionary *)CFNetworkCopySystemProxySettings();
+    NSArray *proxies = (__bridge NSArray *)CFNetworkCopyProxiesForURL((__bridge CFURLRef)([NSURL URLWithString:url]), (__bridge CFDictionaryRef _Nonnull)(proxySettings));
+    NSDictionary *settings = [proxies objectAtIndex:0];
+    NSString *proxyType = [settings objectForKey:(NSString *)kCFProxyTypeKey];
+    if ([proxyType isEqualToString:@"kCFProxyTypeNone"]) {
+        return NO; // 没有设置代理
+    } else {
+        return YES; // 设置了代理
+    }
+}
+
 @end

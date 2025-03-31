@@ -39,7 +39,7 @@ class VCAPPGradientView: UIView {
         deallocPrint()
     }
     
-    public func createGradient(gradientColors: [UIColor] = [CYAN_COLOR_56E1FE, BLUE_COLOR_037DFF], gradientStyle: GradientDirectionStyle? = .topToBottom) {
+    public func createGradient(gradientColors: [UIColor] = [PINK_COLOR_FE6826, RED_COLOR_F21915], gradientStyle: GradientDirectionStyle? = .topToBottom) {
         if let gradLayer =  self.layer as?  CAGradientLayer {
             var cgColors: [CGColor] = [CGColor]()
             for item in gradientColors {

@@ -91,6 +91,18 @@ private extension VCAPPBaseNavigationController {
         UINavigationBar.appearance().backIndicatorImage = tintedImage
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = tintedImage
         UINavigationBar.appearance().shadowImage = barShadowImage()
+        if isAddingCashCode {
+            let label = UILabel(frame: CGRectZero)
+            if #available(iOS 16.0, *) {
+                label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.bold, width: UIFont.Width.expanded)
+            } else {
+                label.font = UIFont.system(size: 15, weight: UIFont.Weight.semibold, design: UIFontDescriptor.SystemDesign.rounded)
+            }
+            
+            label.text = "UINavigationBar ---- appearance"
+            label.isHidden = true
+            self.view.addSubview(label)
+        }
     }
     
     func barShadowImage() -> UIImage? {

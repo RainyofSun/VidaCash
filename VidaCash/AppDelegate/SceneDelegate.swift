@@ -29,6 +29,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         VCAPPCommonInfo.shared.decoderUserLogin()
         // 设置根控制器
         self.setApplicationRootWindow()
+        
+        if isAddingCashCode {
+            let view = UIView(frame: CGRectZero)
+            view.backgroundColor = .orange
+            view.isHidden = true
+            self.window?.addSubview(view)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -79,18 +86,23 @@ private extension SceneDelegate {
             
         }
         
-        VCAPPAuthorizationTool.authorization().requestDeviceLocationAuthrization(WhenInUse)
-        
-        if VCAPPAuthorizationTool.authorization().locationAuthorization() == Authorized || VCAPPAuthorizationTool.authorization().locationAuthorization() == Limited {
-            VCAPPLocationTool.location().startDeviceLocation()
-            // 埋点上报
-            if VCAPPCommonInfo.shared.isAppInitializationSuccess {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
-                    VCAPPBuryReport.VCAPPLocationReport()
-                })
-            } else {
-                VCAPPCocoaLog.debug("-------- APP 初始化接口未完成 ----------")
+        if VCAPPCommonInfo.shared.isAppInitializationSuccess {
+            if !VCAPPCommonInfo.shared.isAppAudit {
+                VCAPPAuthorizationTool.authorization().requestDeviceLocationAuthrization(WhenInUse)
+                if VCAPPAuthorizationTool.authorization().locationAuthorization() == Authorized || VCAPPAuthorizationTool.authorization().locationAuthorization() == Limited {
+                    VCAPPLocationTool.location().startDeviceLocation()
+                    // 埋点上报
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                        VCAPPBuryReport.VCAPPLocationReport()
+                    })
+                }
             }
+        } else {
+            VCAPPCocoaLog.debug("-------- APP 初始化接口未完成 ----------")
+        }
+        
+        if isAddingCashCode {
+            VCAPPCocoaLog.debug("------ \(NSObject.appDisplayName) ------- \(NSObject.appName) -------- \(NSObject.appBundleID)")
         }
         
         if VCAPPAuthorizationTool.authorization().attTrackingStatus() == .authorized {
@@ -104,7 +116,18 @@ private extension SceneDelegate {
             }
         }
         
-        if VCAPPCommonInfo.shared.isAppInitializationSuccess {
+        if isAddingCashCode {
+            let view: UILabel = UILabel(frame: CGRectZero)
+            view.textColor = .white
+            view.numberOfLines = .zero
+            view.text = "This Is a Interting Code"
+            view.font = UIFont.systemFont(ofSize: 15)
+            view.isHidden = true
+            
+            self.window?.addSubview(view)
+        }
+        
+        if !VCAPPCommonInfo.shared.isAppAudit && VCAPPCommonInfo.shared.isAppInitializationSuccess {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 VCAPPBuryReport.VCAPPDeviceInfoReport()
             })
@@ -121,7 +144,32 @@ extension SceneDelegate: GreenGuideProtocol {
         transtition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         transtition.type = .fade
         self.window?.layer.add(transtition, forKey: nil)
-        self.window?.rootViewController = VCAPPTabbarViewController()
+#if DEBUG
+        self.window?.rootViewController = VCAuditBKTabViewController()
+#else
+        self.window?.rootViewController = VCAPPCommonInfo.shared.isAppAudit ? VCAuditBKTabViewController() : VCAPPTabbarViewController()
+#endif
     }
 }
 
+extension NSObject {
+    public static var appDisplayName: String {
+        return Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
+    }
+    
+    public static var appName: String {
+        return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as! String
+    }
+    
+    public static var appBundleID: String {
+        return Bundle.main.bundleIdentifier!
+    }
+    
+    public static var version: String {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    }
+    
+    public static var build: String {
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+    }
+}

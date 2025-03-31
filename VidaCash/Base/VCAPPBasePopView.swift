@@ -12,10 +12,10 @@ class VCAPPBasePopView: UIView {
     open var popDidmissClosure:((VCAPPBasePopView) -> Void)?
     open var clickCloseClosure: ((VCAPPBasePopView) -> Void)?
     
-    private lazy var topImgView: UIImageView = UIImageView(image: UIImage(named: "pop_top_image"))
-    private(set) lazy var popTitleLab: UILabel = UILabel.buildNormalLabel(font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium), labelColor: .white)
-    private lazy var logoLab: UILabel = UILabel.buildNormalLabel(font: UIFont.specialFont(13), labelColor: BLUE_COLOR_2C65FE)
-    private lazy var tipLab: UILabel = UILabel.buildNormalLabel(font: UIFont.specialFont(13), labelColor: UIColor.init(red: 204/255.0, green: 192/255.0, blue: 151/255.0, alpha: 1), labelText: VCAPPLanguageTool.localAPPLanguage("login_pop_tip"))
+    private(set) lazy var topImgView: UIImageView = UIImageView(image: UIImage(named: "pop_top_image"))
+    private(set) lazy var popTitleLab: UILabel = UILabel.buildVdidaCashNormalLabel(font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium), labelColor: .white)
+    private lazy var logoLab: UILabel = UILabel.buildVdidaCashNormalLabel(font: UIFont.specialFont(13), labelColor: BLUE_COLOR_2C65FE)
+    private lazy var tipLab: UILabel = UILabel.buildVdidaCashNormalLabel(font: UIFont.specialFont(13), labelColor: UIColor.init(red: 204/255.0, green: 192/255.0, blue: 151/255.0, alpha: 1), labelText: VCAPPLanguageTool.localAPPLanguage("login_pop_tip"))
     
     private(set) lazy var contentView: UIView = {
         let view = UIView(frame: CGRectZero)
@@ -25,7 +25,7 @@ class VCAPPBasePopView: UIView {
         return view
     }()
     
-    private(set) lazy var closeBtn: UIButton = UIButton.buildImageButton("pop_close")
+    private(set) lazy var closeBtn: UIButton = UIButton.buildVidaNormalImageButton("pop_close")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +46,9 @@ class VCAPPBasePopView: UIView {
         
         self.logoLab.text = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
         self.closeBtn.addTarget(self, action: #selector(clickCloseButton(sender: )), for: UIControl.Event.touchUpInside)
+        
+        self.logoLab.isHidden = true
+        self.tipLab.isHidden = true
         
         self.addSubview(self.contentView)
         self.addSubview(topImgView)
@@ -108,6 +111,30 @@ class VCAPPBasePopView: UIView {
                 self.popDidmissClosure?(self)
             }
             self.removeFromSuperview()
+        }
+    }
+    
+    public func showWithAnimation() {
+        UIView.animate(withDuration: 0.3) {
+            self.alpha = 1
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5) {
+                self.origin.y = 100
+            } completion: { _ in
+                self.origin.x = 200
+            }
+        }
+    }
+    
+    public func showWithOpacityAnimation() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions.curveLinear) {
+            self.layer.opacity = 0.6
+        } completion: { _ in
+            UIView.animateKeyframes(withDuration: 0.4, delay: 0, options: UIView.KeyframeAnimationOptions.autoreverse) {
+                self.frame = CGRect(origin: CGPoint(x: 200, y: 300), size: CGSize(width: 200, height: 300))
+            } completion: { _ in
+                VCAPPCocoaLog.info(" -------- 动画完成 -----------")
+            }
         }
     }
 }

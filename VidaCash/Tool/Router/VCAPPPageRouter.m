@@ -24,6 +24,8 @@ static NSString * const APP_LOGIN_PATH = @"v://id.ac.ash/but";
 static NSString * const APP_ORDER_PATH = @"v://id.ac.ash/lying";
 /// 产品详情
 static NSString * const APP_PRODUCT_PATH = @"v://id.ac.ash/hardcover";
+/// 金融统计
+static NSString * const APP_STATISTICS_PATH = @"v://id.ac.ash/statistics";
 
 @implementation VCAPPPageRouter
 
@@ -62,6 +64,8 @@ static NSString * const APP_PRODUCT_PATH = @"v://id.ac.ash/hardcover";
             rootVC.selectedIndex = 1;
         } else if ([url containsString:APP_PRODUCT_PATH]) {
             [topVC.navigationController pushViewController:[[VCAPPLoanProductViewController alloc] initWithLoanProductIDNumber:[self separateURLParameter:url]] animated:YES];
+        } else if ([url containsString:APP_STATISTICS_PATH]) {
+            [topVC.navigationController pushViewController:[[VCAuditBKReportViewController alloc] init] animated:YES];
         } else {
             if (target != nil) {
                 [topVC.navigationController pushViewController:target animated:YES];

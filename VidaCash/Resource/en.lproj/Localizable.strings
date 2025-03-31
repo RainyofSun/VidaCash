@@ -73,7 +73,7 @@
 "mine_setting_pop_tip2" = "All borrowings have been completed";
 "mine_setting_pop_tip3" = "I have read and agreed to the above";
 "mine_setting_pop_title" = "Account cancellation";
-"mine_setting_pop_title1" = "Payment tips";
+"mine_setting_pop_title1" = "Tips";
 "cancel_agree_cancel_protocol" = "Please confirm whether you agree to cancel the agreement";
 "mine_setting_logout_tip" = "Are you sure you want to quit?";
 "mine_setting_logout_title" = "Exit";

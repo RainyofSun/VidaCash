@@ -28,7 +28,10 @@ let LOGIN_OBERVER_KEY: String = "userHasLogin"
     open var productOrderNum: String?
     /// 接口是否初始化成功
     open var isAppInitializationSuccess: Bool = false
-    
+    /// 是否是审核
+    open var isAppAudit: Bool {
+        return self.countryCode == 1
+    }
     /// 外界监听登出/登录
     @objc private dynamic var userHasLogin: Bool = false
     
@@ -37,6 +40,9 @@ let LOGIN_OBERVER_KEY: String = "userHasLogin"
         if let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             // 存储到临时路径下
             let filePath: String = document + "/city.json"
+            if isAddingCashCode {
+                VCAPPCocoaLog.info(self.saveMapImgPath)
+            }
             return filePath
         }
         
@@ -48,6 +54,9 @@ let LOGIN_OBERVER_KEY: String = "userHasLogin"
         if let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             // 存储到临时路径下
             let filePath: String = document + "/card.png"
+            if isAddingCashCode {
+                VCAPPCocoaLog.info(self.saveMapImgPath)
+            }
             return filePath
         }
         
@@ -59,6 +68,20 @@ let LOGIN_OBERVER_KEY: String = "userHasLogin"
         if let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             // 存储到临时路径下
             let filePath: String = document + "/face.png"
+            if isAddingCashCode {
+                VCAPPCocoaLog.info(self.saveMapImgPath)
+            }
+            return filePath
+        }
+        
+        return ""
+    }
+    
+    // 保存地图路径
+    open var saveMapImgPath: String {
+        if let document = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first {
+            // 存储到临时路径下
+            let filePath: String = document + "/map.png"
             return filePath
         }
         

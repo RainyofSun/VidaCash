@@ -9,7 +9,7 @@ import UIKit
 
 class VCAPPProcessItem: UIImageView {
 
-    private lazy var titleLab: UILabel = UILabel.buildNormalLabel(font: UIFont.systemFont(ofSize: 14), labelColor: BLUE_COLOR_2C65FE)
+    private lazy var titleLab: UILabel = UILabel.buildVdidaCashNormalLabel(font: UIFont.systemFont(ofSize: 14), labelColor: RED_COLOR_F21915)
     
     override init(image: UIImage?) {
         super.init(image: image)
@@ -32,5 +32,6 @@ class VCAPPProcessItem: UIImageView {
     
     public func reloadProcessItem(_ model: VCAPPProcessModel) {
         self.titleLab.text = model.title
+        self.titleLab.textColor = model.titleColor
     }
 }

@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getIPAddress;
 + (NSDictionary *)getAppDiskSize;
 + (NSString *)getFreeMemory;
+- (BOOL)getProxyStatus:(NSString *)url;
 
 @end
 

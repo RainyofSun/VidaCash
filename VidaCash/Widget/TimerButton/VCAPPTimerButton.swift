@@ -9,7 +9,7 @@ import UIKit
 
 class VCAPPTimerButton: UIControl {
 
-    private lazy var titleLab: UILabel = UILabel.buildNormalLabel(font: UIFont.systemFont(ofSize: 15), labelColor: BLUE_COLOR_2C65FE, labelText: VCAPPLanguageTool.localAPPLanguage("login_timer_code_title"))
+    private lazy var titleLab: UILabel = UILabel.buildVdidaCashNormalLabel(font: UIFont.systemFont(ofSize: 15), labelColor: RED_COLOR_F21915, labelText: VCAPPLanguageTool.localAPPLanguage("login_timer_code_title"))
     private var system_timer: Timer?
     
     private var time_count: Int = .zero

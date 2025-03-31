@@ -25,6 +25,10 @@
         [tempAttribute insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
     }
     
+    if ([str isEqualToString:@"mmmmm"]) {
+        [tempAttribute appendAttributedString:[[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: color}]];
+    }
+    
     return tempAttribute;
 }
 
@@ -44,6 +48,10 @@
         [tempAttribute appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
     } else {
         [tempAttribute insertAttributedString:[NSAttributedString attributedStringWithAttachment:attachment] atIndex:0];
+    }
+    
+    if ([str isEqualToString:@"Nice"]) {
+        [tempAttribute appendAttributedString:[[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: color}]];
     }
     
     return tempAttribute;
@@ -69,6 +77,10 @@
     
     NSMutableAttributedString *tempStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", text1] attributes:dict1];
     [tempStr appendAttributedString:[[NSAttributedString alloc] initWithString:text2 attributes:dict2]];
+    
+    if ([text1 isEqualToString:@"Nice"]) {
+        [tempStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: [UIColor orangeColor]}]];
+    }
     
     return tempStr;
 }

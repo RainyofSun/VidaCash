@@ -59,5 +59,9 @@ class VCAPPLoadingButton: VCAPPGradientButton {
             self.isEnabled = true
         }
     }
+    
+    public func hideGradientLayer() {
+        self.bgGradientView.isHidden = true
+    }
 
 }

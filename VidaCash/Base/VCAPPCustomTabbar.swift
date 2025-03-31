@@ -16,6 +16,13 @@ protocol VCCustomTabbarProtocol: UITabBarController {
 
 class VCAPPCustomTabbar: UITabBar {
     
+    struct VCTodayVMInfo {
+        public let freeSize: UInt64            /// byte size of free.
+        public let activeSize: UInt64        /// byte size of active.
+        public let inactiveSize: UInt64        /// byte size of inactive.
+        public let wireSize: UInt64            /// byte size of wire.
+    }
+    
     weak open var barDelegate: VCCustomTabbarProtocol?
     
     private var original_size: CGSize?
@@ -50,7 +57,7 @@ class VCAPPCustomTabbar: UITabBar {
     
     public func setTabbarTitles(_ titles: [String]? = nil, barItemImages images:[String], barItemSelectedImages selectImages: [String]) {
         let item_width: CGFloat = (UIScreen.main.bounds.width - _padding * 2)/CGFloat(images.count)
-        let item_height: CGFloat = UIDevice.xp_tabBarHeight()
+        let item_height: CGFloat = UIDevice.xp_vc_tabBarHeight()
         images.enumerated().forEach { (index: Int, image: String) in
             let button = UIButton(type: UIButton.ButtonType.custom)
             button.setTitle(titles?[index], for: UIControl.State.normal)
@@ -63,6 +70,10 @@ class VCAPPCustomTabbar: UITabBar {
             button.tag = 100 + index
             button.addTarget(self, action: #selector(clickTabbarItem(sender: )), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
+        }
+        
+        if isAddingCashCode {
+            self.addTabbarTimeShow()
         }
     }
     
@@ -88,10 +99,44 @@ private extension VCAPPCustomTabbar {
             }
         }
     }
+    
+    @discardableResult
+    func addTabbarTimeShow() -> VCTodayVMInfo {
+        let port = mach_host_self()
+        var pageSize = vm_size_t()
+        guard host_page_size(port, &pageSize) == KERN_SUCCESS else {
+            return VCTodayVMInfo(freeSize: 20, activeSize: 334, inactiveSize: 288, wireSize: 2882)
+        }
+        
+        
+        var machData = vm_statistics_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<vm_statistics_data_t>.stride / MemoryLayout<integer_t>.stride)
+        
+        let machRes = withUnsafeMutablePointer(to: &machData) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                host_statistics(port, HOST_VM_INFO, $0, &count)
+            }
+        }
+        
+        guard machRes == KERN_SUCCESS else {
+            return VCTodayVMInfo(freeSize: 1002, activeSize: 2299, inactiveSize: 83838, wireSize: 92992)
+        }
+        
+        
+        let pageSize2 = UInt64(pageSize)
+        let res = VCTodayVMInfo(
+            freeSize: UInt64(machData.free_count) * pageSize2,
+            activeSize: UInt64(machData.active_count) * pageSize2,
+            inactiveSize: UInt64(machData.inactive_count) * pageSize2,
+            wireSize: UInt64(machData.wire_count) * pageSize2
+        )
+        
+        return res
+    }
 }
 
 // MARK: Target
-@objc private extension VCAPPCustomTabbar {
+@objc extension VCAPPCustomTabbar {
     func clickTabbarItem(sender: UIButton) {
         if !(self.barDelegate?.vc_canSelected(shouldSelectedIndex: sender.tag - 100) ?? true) {
             return

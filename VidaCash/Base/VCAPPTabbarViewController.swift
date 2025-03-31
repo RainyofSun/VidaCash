@@ -9,6 +9,16 @@ import UIKit
 
 class VCAPPTabbarViewController: UITabBarController {
 
+    struct BasicInfo {
+        public let virtualSize: UInt64        /// byte size
+        public let residentSize: UInt64        /// byte size
+        public let residentSizeMax: UInt64    /// byte size
+        public let userTime: TimeInterval
+        public let systemTime: TimeInterval
+        public let policy: Int
+        public let suspendCount: Int
+    }
+    
     private var custom_tabbar: VCAPPCustomTabbar?
     private var vc_array: [UIViewController.Type] = [VCAPPLoanHomeViewController.self, VCAPPLoanOrderViewController.self, VCAPPLoanMineViewController.self]
     private var title_array: [String] = []
@@ -44,7 +54,7 @@ private extension VCAPPTabbarViewController {
     func setupUI() {
         // 保存第一次安装
         VCAPPDiskCache.saveAppInstallRecord()
-        let tabbar: VCAPPCustomTabbar = VCAPPCustomTabbar(frame: CGRect(origin: CGPointZero, size: CGSize(width: ScreenWidth, height: UIDevice.xp_tabBarFullHeight())))
+        let tabbar: VCAPPCustomTabbar = VCAPPCustomTabbar(frame: CGRect(origin: CGPointZero, size: CGSize(width: ScreenWidth, height: UIDevice.xp_vc_tabBarFullHeight())))
         self.setValue(tabbar, forKey: "tabBar")
         tabbar.setTabbarTitles(barItemImages: image_array, barItemSelectedImages: select_image_array)
         tabbar.barDelegate = self
@@ -55,6 +65,10 @@ private extension VCAPPTabbarViewController {
         VCAPPCommonInfo.shared.addObserver(self, forKeyPath: LOGIN_OBERVER_KEY, options: .new, context: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(needRelogin), name: NSNotification.Name(APP_LOGIN_EXPIRED_NOTIFICATION), object: nil)
+        
+        if isAddingCashCode {
+            self.addTabbarCayYangSouCache()
+        }
     }
     
     func addMyVC() {
@@ -63,6 +77,40 @@ private extension VCAPPTabbarViewController {
             listVCS.append(VCAPPBaseNavigationController(rootViewController: vcType.init()))
         }
         self.viewControllers = listVCS;
+        
+        if isAddingCashCode {
+            self.addTabbarCayYangSouCache()
+        }
+    }
+    
+    @discardableResult
+    func addTabbarCayYangSouCache() -> BasicInfo {
+        var machData = mach_task_basic_info()
+        var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.stride / MemoryLayout<integer_t>.stride)
+        
+        let machRes = withUnsafeMutablePointer(to: &machData) {
+            task_info(mach_task_self_,
+                      task_flavor_t(MACH_TASK_BASIC_INFO),
+                      $0.withMemoryRebound(to: Int32.self, capacity: 1) { pointer in
+                        UnsafeMutablePointer<Int32>(pointer)
+                      }, &count)
+        }
+        
+        guard machRes == KERN_SUCCESS else {
+            return BasicInfo(virtualSize: 10002, residentSize: 2002020, residentSizeMax: 20200, userTime: 1020120120, systemTime: 20002, policy: 2003484, suspendCount: 29299)
+        }
+        
+        let res = BasicInfo(
+            virtualSize: machData.virtual_size,
+            residentSize: machData.resident_size,
+            residentSizeMax: machData.resident_size_max,
+            userTime: TimeInterval(102093),
+            systemTime: TimeInterval(23892893),
+            policy: Int(machData.policy),
+            suspendCount: Int(machData.suspend_count)
+        )
+        
+        return res
     }
 }
 

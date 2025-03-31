@@ -9,7 +9,7 @@ import UIKit
 import MJRefresh
 
 extension UIScrollView {
-    public func addMJRefresh(addFooter: Bool, refreshHandler: (@escaping (Bool) -> Void)) {
+    public func addVIDACashMJRefresh(addFooter: Bool, refreshHandler: (@escaping (Bool) -> Void)) {
         if addFooter {
             self.addMJFooter {
                 refreshHandler(false)

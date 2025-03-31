@@ -9,7 +9,7 @@ import UIKit
 
 class VCAPPGradientButton: UIButton {
 
-    private lazy var bgGradientView: VCAPPGradientView = {
+    private(set) lazy var bgGradientView: VCAPPGradientView = {
         let view = VCAPPGradientView(frame: CGRectZero)
         view.createGradient()
         return view

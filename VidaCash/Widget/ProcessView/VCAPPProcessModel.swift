@@ -9,5 +9,6 @@ import UIKit
 
 class VCAPPProcessModel: NSObject {
     var title: String?
+    var titleColor: UIColor?
     var bgImage: String?
 }
