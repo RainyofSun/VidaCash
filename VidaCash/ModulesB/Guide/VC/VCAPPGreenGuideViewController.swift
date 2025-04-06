@@ -18,7 +18,7 @@ class VCAPPGreenGuideViewController: VCAPPBaseViewController {
     
     private lazy var bgImgView: UIImageView = UIImageView(image: UIImage(named: "app_launch_img"))
     private lazy var tryButton: UIButton = {
-        let view = UIButton.buildVidaCashNormalButton(VCAPPLanguageTool.localAPPLanguage("guide_try_title"), titleColor: UIColor.hexStringColor(hexString: "#1B1F26", alpha: 0.72))
+        let view = UIButton.buildVidaCashNormalButton("Try Again", titleColor: UIColor.hexStringColor(hexString: "#1B1F26", alpha: 0.72))   
         view.backgroundColor = .white
         view.corner(25)
         view.isHidden = true

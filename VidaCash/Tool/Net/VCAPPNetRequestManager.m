@@ -25,7 +25,7 @@
     if (requestConfig.requestType == AFNRequestType_Get) {
         return [[VCAPPNetRequestConfig requestConfig].manager GET:requestUrl parameters:requestConfig.requestParams headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             VCAPPNetResponseModel *responseModel = [self jsonToModel:responseObject requestTask:task];
-            if (responseModel.reqeustError && failure != nil) {
+            if (responseModel == nil || [responseModel isEqual:[NSNull null]] || (responseModel.reqeustError && failure != nil)) {
                 failure(nil, responseModel.reqeustError);
             } else {
                 VCAPPSuccessResponse *response = [[VCAPPSuccessResponse alloc] init];
@@ -43,7 +43,7 @@
     } else if (requestConfig.requestType == AFNRequestType_Post) {
         return [[VCAPPNetRequestConfig requestConfig].manager POST:requestUrl parameters:requestConfig.requestParams headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             VCAPPNetResponseModel *responseModel = [self jsonToModel:responseObject requestTask:task];
-            if (responseModel.reqeustError && failure != nil) {
+            if (responseModel == nil || [responseModel isEqual:[NSNull null]] || (responseModel.reqeustError && failure != nil)) {
                 failure(nil, responseModel.reqeustError);
             } else {
                 VCAPPSuccessResponse *response = [[VCAPPSuccessResponse alloc] init];
@@ -70,7 +70,7 @@
             }];
         } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             VCAPPNetResponseModel *responseModel = [self jsonToModel:responseObject requestTask:task];
-            if (responseModel.reqeustError && failure != nil) {
+            if (responseModel == nil || [responseModel isEqual:[NSNull null]] || (responseModel.reqeustError && failure != nil)) {
                 failure(nil, responseModel.reqeustError);
             } else {
                 VCAPPSuccessResponse *response = [[VCAPPSuccessResponse alloc] init];
@@ -116,11 +116,11 @@
 #if DEBUG
     NSLog(@"RequestURL = \n %@ \n Response = \n %@ \nEnd -------", task.currentRequest.URL.absoluteString, jsonStr);
 #endif
-    if ([NSString isEmpty:jsonStr]) {
+    VCAPPNetResponseModel *responseModel = [VCAPPNetResponseModel modelWithJSON:jsonStr];
+    if ([NSString isEmpty:jsonStr] || responseModel == nil || [responseModel isEqual:[NSNull null]]) {
         return nil;
     }
     
-    VCAPPNetResponseModel *responseModel = [VCAPPNetResponseModel modelWithJSON:jsonStr];
     if (responseModel.canceled == -2) {
         responseModel.reqeustError = [[NSError alloc] initWithDomain:@"request.error" code:responseModel.canceled userInfo:@{NSLocalizedFailureReasonErrorKey: responseModel.asia}];
         // 登录失效.重新登录

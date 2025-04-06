@@ -1695,7 +1695,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VidaCash/Support/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Registro Dinero";
+				INFOPLIST_KEY_CFBundleDisplayName = LaDinero;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Authorize camera access to easily take ID card photos and have a convenient operation process.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "The APP applies to access the contact list. Easily upload contact information to simplify steps and accelerate the loan application.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "we need your permission to access the network";
@@ -1745,7 +1745,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VidaCash/Support/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Registro Dinero";
+				INFOPLIST_KEY_CFBundleDisplayName = LaDinero;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Authorize camera access to easily take ID card photos and have a convenient operation process.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "The APP applies to access the contact list. Easily upload contact information to simplify steps and accelerate the loan application.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "we need your permission to access the network";

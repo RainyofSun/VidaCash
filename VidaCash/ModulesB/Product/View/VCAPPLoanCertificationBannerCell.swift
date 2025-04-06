@@ -40,7 +40,11 @@ class VCAPPLoanCertificationBannerCell: JXBannerBaseCell {
         }
         
         if let _name = model.imgName {
-            self.imageView.image = UIImage(named: _name)
+            if _name.hasPrefix("http"), let _url = URL(string: _name) {
+                self.imageView.setImageWith(_url, options: YYWebImageOptions.setImageWithFadeAnimation)
+            } else {
+                self.imageView.image = UIImage(named: _name)
+            }
         }
     }
 }

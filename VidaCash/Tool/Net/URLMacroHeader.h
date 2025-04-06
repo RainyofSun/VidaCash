@@ -13,10 +13,9 @@
 
 #pragma mark - URL
 #if DEBUG
-static NSString * _Nullable const NET_REQUEST_BASE_URL = @"http://47.251.52.24:8415/scale";
+static NSString * _Nullable const NET_REQUEST_BASE_URL = @"https://jf.julania.com/scale";
 #else
-//static NSString * _Nullable const NET_REQUEST_BASE_URL = @"https://app.fintopia-lending.com/scale";
-static NSString * _Nullable const NET_REQUEST_BASE_URL = @"http://47.251.52.24:8415/scale";
+static NSString * _Nullable const NET_REQUEST_BASE_URL = @"https://jf.julania.com/scale";
 #endif
 
 /*

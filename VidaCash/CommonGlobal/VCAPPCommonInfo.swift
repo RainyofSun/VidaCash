@@ -30,7 +30,7 @@ let LOGIN_OBERVER_KEY: String = "userHasLogin"
     open var isAppInitializationSuccess: Bool = false
     /// 是否是审核
     open var isAppAudit: Bool {
-        return self.countryCode == 1
+        return false
     }
     /// 外界监听登出/登录
     @objc private dynamic var userHasLogin: Bool = false

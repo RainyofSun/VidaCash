@@ -55,20 +55,7 @@ class VCAPPLoanCertificationView: UIImageView {
             let banner_model: VCAPPLoanBannerModel = VCAPPLoanBannerModel()
             banner_model.complete_auth = item.brokeback
             banner_model.certificationModel = item
-            switch item.certificationType {
-            case .Certification_Question:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_question_es" : "certification_question"
-            case .Certification_ID_Card:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_id_card_es" : "certification_id_card"
-            case .Certification_Personal_Info:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_base_info_es" : "certification_base_info"
-            case .Certification_Job_Info:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_job_info_es" : "certification_job_info"
-            case .Certification_Contects:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_contact_info_es" : "certification_contact_info"
-            case .Certification_BankCard:
-                banner_model.imgName = VCAPPDiskCache.readAPPLanguageFormDiskCache() == .Spanish ? "certification_backcard_info_es" : "certification_backcard_info"
-            }
+            banner_model.imgName = item.eight
             
             self._banner_source.append(banner_model)
         }

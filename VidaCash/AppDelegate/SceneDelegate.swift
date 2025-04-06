@@ -144,11 +144,7 @@ extension SceneDelegate: GreenGuideProtocol {
         transtition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         transtition.type = .fade
         self.window?.layer.add(transtition, forKey: nil)
-#if DEBUG
-        self.window?.rootViewController = VCAuditBKTabViewController()
-#else
         self.window?.rootViewController = VCAPPCommonInfo.shared.isAppAudit ? VCAuditBKTabViewController() : VCAPPTabbarViewController()
-#endif
     }
 }
 
